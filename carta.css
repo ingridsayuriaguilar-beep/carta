@@ -1,0 +1,593 @@
+/* =========================================
+   VINILO
+========================================= */
+
+.vinilo {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 75px;
+
+    height: 75px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 100;
+}
+
+
+.disco {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #9ec9eb 0 7px,
+            #183e70 8px 12px,
+            #111827 13px 100%
+        );
+
+    box-shadow:
+        0 8px 20px rgba(20,50,90,.3);
+
+    position: relative;
+
+    transition: .3s;
+}
+
+
+.surco {
+
+    position: absolute;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    border-radius: 50%;
+
+    inset: 8px;
+}
+
+.surco-2 {
+    inset: 17px;
+}
+
+.surco-3 {
+    inset: 26px;
+}
+
+
+.centro-disco {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+.nota-musical {
+
+    position: absolute;
+
+    right: -5px;
+
+    top: -10px;
+
+    color: var(--azul);
+
+    font-size: 22px;
+
+    animation:
+        nota 2s infinite ease-in-out;
+}
+
+
+.vinilo.reproduciendo .disco {
+
+    animation:
+        girar 3s linear infinite;
+}
+
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes nota {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-10deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(10deg);
+    }
+}
+
+/* =========================================
+   PÁGINA DE LA CARTA
+========================================= */
+
+/* ========================================
+   BURBUJA PARA VOLVER AL INICIO
+======================================== */
+
+.boton-regresar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #3974b8,
+        #6ea9da
+    );
+
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    line-height: 1;
+    text-decoration: none;
+
+    box-shadow: 0 4px 15px rgba(36, 91, 156, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.boton-regresar:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 6px 18px rgba(36, 91, 156, 0.35);
+}
+
+.boton-regresar:focus-visible {
+    outline: 3px solid #8fc4ec;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .boton-regresar {
+        top: 12px;
+        left: 12px;
+        width: 39px;
+        height: 39px;
+        font-size: 23px;
+    }
+}
+
+.pagina-carta {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9efff,
+            #eef8ff,
+            #c8e3f7
+        );
+
+    color: var(--azul-oscuro);
+
+    padding:
+        50px 20px 100px;
+}
+
+
+.fondo-carta {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,.8),
+            transparent 35%
+        );
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.encabezado-carta {
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.encabezado-carta p {
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    font-size: 11px;
+
+    opacity: .6;
+}
+
+
+.encabezado-carta h1 {
+
+    font-size:
+        clamp(45px, 8vw, 80px);
+
+    font-weight: normal;
+
+    margin-top: 5px;
+
+    color: var(--azul-oscuro);
+}
+
+
+/* =========================================
+   ESCENA
+========================================= */
+
+.escena-carta {
+
+    width: 100%;
+
+    min-height: 650px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   CARTA
+========================================= */
+
+.carta {
+
+    width:
+        min(1200px, 90vw);
+
+    min-height: 600px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7fbff
+        );
+
+    border-radius: 8px;
+
+    padding:
+        55px 65px;
+
+    position: relative;
+
+    z-index: 10;
+
+    box-shadow:
+        0 30px 60px
+        rgba(30,70,110,.25);
+
+    transform:
+        rotate(-1deg);
+
+    animation:
+        carta-aparece 1.5s ease;
+
+    border:
+        1px solid rgba(80,130,180,.15);
+}
+
+
+/* Decoraciones */
+
+.decoracion-carta {
+
+    text-align: center;
+
+    color: #6b9dca;
+
+    letter-spacing: 5px;
+
+    font-size: 20px;
+}
+
+
+.carta-contenido {
+
+    margin-top: 30px;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #3b5875;
+}
+
+
+.carta-contenido p {
+
+    margin-bottom: 20px;
+}
+
+
+.saludo {
+
+    font-size: 26px;
+
+    color: #315d8c;
+}
+
+
+.firma {
+
+    text-align: right;
+
+    margin-top: 40px;
+
+    font-style: italic;
+
+    color: #4779a9;
+}
+
+
+@keyframes carta-aparece {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            rotate(-4deg)
+            scale(.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(-1deg)
+            scale(1);
+    }
+}
+
+
+@keyframes tarjeta-aparece {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.9);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .inicio-contenido {
+
+        padding:
+            25px 15px;
+    }
+
+
+    .pequeno-texto {
+
+        font-size: 14px;
+    }
+
+
+    .happy {
+
+        letter-spacing: -2px;
+    }
+
+
+    .subtitulo {
+
+        font-size: 15px;
+
+        max-width: 300px;
+    }
+
+
+    .ramo {
+
+        transform:
+            scale(.78);
+
+        margin:
+            -15px 0;
+    }
+
+
+    .mensaje-inicial {
+
+        padding:
+            28px 20px;
+
+        border-radius: 25px;
+    }
+
+
+    .mensaje-inicial h2 {
+
+        font-size: 21px;
+    }
+
+
+    .vinilo {
+
+        width: 65px;
+
+        height: 65px;
+
+        right: 15px;
+
+        bottom: 15px;
+    }
+
+
+    .disco {
+
+        width: 60px;
+
+        height: 60px;
+    }
+
+
+    .pagina-carta {
+
+        padding:
+            35px 10px 90px;
+    }
+
+
+    .encabezado-carta h1 {
+
+        font-size: 48px;
+    }
+
+
+    .escena-carta {
+
+        min-height: auto;
+
+        padding:
+            20px 0 40px;
+    }
+
+
+    .persona-css {
+
+        transform:
+            scale(.55);
+
+        bottom: -100px;
+    }
+
+
+    .carta {
+
+        width: 94vw;
+
+        min-height: auto;
+
+        padding:
+            35px 25px;
+
+        transform:
+            rotate(-.5deg);
+    }
+
+
+    .carta-contenido {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+
+    .saludo {
+
+        font-size: 23px;
+    }
+}

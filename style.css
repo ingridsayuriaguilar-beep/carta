@@ -1,0 +1,1054 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   COLORES
+========================================= */
+
+:root {
+
+    --azul-oscuro: #173b70;
+    --azul: #3974b8;
+    --azul-claro: #8fc4ec;
+    --azul-pastel: #cfe8fa;
+
+    --blanco: #ffffff;
+    --crema: #fffaf4;
+
+    --sombra:
+        0 20px 50px rgba(25, 70, 120, 0.25);
+}
+
+
+/* =========================================
+   PÁGINA 1
+========================================= */
+
+.pagina-inicio {
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffffff 0%,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #dff2ff,
+            #b8dcf5,
+            #eaf6ff
+        );
+
+    color: var(--azul-oscuro);
+
+    position: relative;
+}
+
+
+/* =========================================
+   BRILLOS DEL FONDO
+========================================= */
+
+.fondo-brillos {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,255,255,.7),
+            transparent 20%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(255,255,255,.5),
+            transparent 25%
+        );
+}
+
+
+/* =========================================
+   PARTÍCULAS
+========================================= */
+
+.particulas span,
+.estrellitas span {
+
+    position: fixed;
+
+    color: rgba(255,255,255,.8);
+
+    font-size: 20px;
+
+    animation:
+        flotar 7s infinite ease-in-out;
+
+    pointer-events: none;
+}
+
+.particulas span:nth-child(1) {
+    left: 8%;
+    top: 15%;
+}
+
+.particulas span:nth-child(2) {
+    left: 85%;
+    top: 20%;
+    animation-delay: 1s;
+}
+
+.particulas span:nth-child(3) {
+    left: 15%;
+    top: 70%;
+    animation-delay: 2s;
+}
+
+.particulas span:nth-child(4) {
+    left: 90%;
+    top: 70%;
+    animation-delay: 3s;
+}
+
+.particulas span:nth-child(5) {
+    left: 50%;
+    top: 10%;
+    animation-delay: 1.5s;
+}
+
+.particulas span:nth-child(6) {
+    left: 30%;
+    top: 30%;
+    animation-delay: 2.5s;
+}
+
+.particulas span:nth-child(7) {
+    left: 70%;
+    top: 80%;
+    animation-delay: 3.5s;
+}
+
+.particulas span:nth-child(8) {
+    left: 5%;
+    top: 45%;
+    animation-delay: 4s;
+}
+
+
+@keyframes flotar {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity: .3;
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(20deg);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   CONTENIDO INICIAL
+========================================= */
+
+.inicio-contenido {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.pequeno-texto {
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    opacity: .75;
+
+    animation:
+        aparecer 1s ease forwards;
+}
+
+
+.happy {
+
+    margin-top: 10px;
+
+    font-size:
+        clamp(60px, 11vw, 125px);
+
+    font-weight: normal;
+
+    letter-spacing: -4px;
+
+    text-shadow:
+        0 8px 20px rgba(30,80,130,.18);
+
+    animation:
+        aparecer 1.2s ease forwards;
+}
+
+.happy span {
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 20px rgba(75,140,200,.5);
+}
+
+
+.subtitulo {
+
+    margin-top: 15px;
+
+    font-size: 18px;
+
+    opacity: .8;
+}
+
+
+
+/* =====================================
+   RAMO ROMÁNTICO
+===================================== */
+
+.ramo {
+    position: relative;
+    width: 340px;
+    height: 310px;
+    margin: 20px auto;
+    animation: ramo-aparece 1.5s ease both;
+    isolation: isolate;
+}
+
+.flor {
+    position: absolute;
+    transform-origin: center bottom;
+    animation: flor-movimiento 4s ease-in-out infinite;
+}
+
+/* =====================================
+   TALLOS
+===================================== */
+
+.tallo {
+    position: absolute;
+    z-index: 0;
+    width: 5px;
+    height: 190px;
+    left: 50%;
+    bottom: 4px;
+    border-radius: 100%;
+    transform-origin: bottom center;
+    background: linear-gradient(
+        90deg,
+        #35695a,
+        #8bb9a0,
+        #477d66
+    );
+    box-shadow: 1px 0 2px #285b4920;
+}
+
+.tallo-1 { transform: rotate(-34deg); }
+.tallo-2 { transform: rotate(-18deg); }
+.tallo-3 { transform: rotate(-4deg); }
+.tallo-4 { transform: rotate(15deg); }
+.tallo-5 { transform: rotate(31deg); }
+
+/* =====================================
+   HOJAS
+===================================== */
+
+.hoja {
+    position: absolute;
+    z-index: 1;
+    width: 43px;
+    height: 19px;
+    background: linear-gradient(
+        145deg,
+        #a6d5ae,
+        #4d936d 65%,
+        #347252
+    );
+    border-radius: 100% 0 100% 0;
+    box-shadow: inset 0 -2px 3px #285b4920;
+}
+
+.hoja::after {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 1px;
+    top: 50%;
+    left: 4%;
+    background: #d0e7bfaa;
+    transform: rotate(-9deg);
+}
+
+.hoja-1 {
+    left: 74px;
+    top: 174px;
+    transform: rotate(15deg);
+}
+
+.hoja-2 {
+    left: 105px;
+    top: 211px;
+    transform: scaleX(-1) rotate(20deg);
+}
+
+.hoja-3 {
+    left: 183px;
+    top: 181px;
+    transform: scaleX(-1) rotate(5deg);
+}
+
+.hoja-4 {
+    left: 212px;
+    top: 218px;
+    transform: rotate(18deg);
+}
+
+.hoja-5 {
+    left: 145px;
+    top: 225px;
+    transform: rotate(-30deg);
+}
+
+/* =====================================
+   HORTENSIAS
+   Muchas florecitas de cuatro pétalos
+===================================== */
+
+.hortensia {
+    z-index: 3;
+    width: 82px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: #a9c8f2;
+    background-image:
+        radial-gradient(ellipse at 50% 17%,
+            #edf4ff 0 13%, transparent 15%),
+        radial-gradient(ellipse at 83% 50%,
+            #789ee5 0 13%, transparent 15%),
+        radial-gradient(ellipse at 50% 83%,
+            #d9e8ff 0 13%, transparent 15%),
+        radial-gradient(ellipse at 17% 50%,
+            #6f91d5 0 13%, transparent 15%),
+        radial-gradient(circle at 50% 50%,
+            #f5dfaa 0 5%, transparent 7%);
+    background-size: 25px 25px;
+    background-position:
+        0 0, 12px 12px, 25px 0, 0 25px, 12px 12px;
+    box-shadow:
+        inset 0 -5px 10px #506fa333,
+        0 5px 12px #526da526;
+    filter: drop-shadow(0 3px 3px #38598725);
+}
+
+.hortensia::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse,
+        #ffffff20,
+        transparent 70%
+    );
+}
+
+.h1 {
+    left: 36px;
+    top: 76px;
+    transform: rotate(-12deg);
+}
+
+.h2 {
+    left: 126px;
+    top: 52px;
+    animation-delay: .7s;
+}
+
+.h3 {
+    left: 220px;
+    top: 88px;
+    transform: rotate(12deg);
+    animation-delay: 1.2s;
+}
+
+/* =====================================
+   TULIPANES
+===================================== */
+
+.tulipan {
+    z-index: 5;
+    width: 45px;
+    height: 59px;
+    border-radius: 48% 48% 45% 45%;
+    background: linear-gradient(
+        90deg,
+        #5487c8,
+        #a9d3fa 47%,
+        #628ed1
+    );
+    box-shadow:
+        inset 5px 0 7px #ffffff35,
+        inset -5px 0 7px #345d9b40,
+        0 4px 8px #365b8a25;
+}
+
+.tulipan::before,
+.tulipan::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    width: 25px;
+    height: 42px;
+    background: linear-gradient(
+        135deg,
+        #b8dcff,
+        #6c9edc 70%
+    );
+    border-radius: 80% 20% 50% 50%;
+}
+
+.tulipan::before {
+    left: -3px;
+    transform: rotate(-24deg);
+}
+
+.tulipan::after {
+    right: -3px;
+    transform: scaleX(-1) rotate(-24deg);
+}
+
+.petalo {
+    position: absolute;
+    z-index: 2;
+    width: 22px;
+    height: 45px;
+    top: -10px;
+    left: 12px;
+    background: linear-gradient(
+        90deg,
+        #6e9bd5,
+        #d1e8ff,
+        #85addf
+    );
+    clip-path: polygon(
+        0 100%, 4% 30%, 30% 8%,
+        50% 0, 75% 15%, 100% 100%
+    );
+    border-radius: 50% 50% 30% 30%;
+}
+
+.t1 {
+    left: 82px;
+    top: 17px;
+    transform: rotate(-12deg);
+}
+
+.t2 {
+    left: 153px;
+    top: 3px;
+    animation-delay: .8s;
+}
+
+.t3 {
+    left: 225px;
+    top: 23px;
+    transform: rotate(12deg);
+    animation-delay: 1.3s;
+}
+
+/* =====================================
+   LIRIOS
+   Seis pétalos alargados y abiertos
+===================================== */
+
+.lirio {
+    z-index: 4;
+    width: 84px;
+    height: 84px;
+    animation-duration: 4.5s;
+}
+
+.l1 {
+    left: 16px;
+    top: 139px;
+    transform: rotate(-12deg);
+}
+
+.l2 {
+    left: 242px;
+    top: 143px;
+    transform: rotate(12deg);
+    animation-delay: 1s;
+}
+
+.lirio-petalo {
+    position: absolute;
+    left: 31px;
+    top: 1px;
+    width: 23px;
+    height: 44px;
+    transform-origin: 50% 100%;
+    clip-path: polygon(
+        50% 0, 76% 14%, 100% 57%,
+        75% 88%, 50% 100%, 25% 88%,
+        0 57%, 24% 14%
+    );
+    border-radius: 50%;
+    background: linear-gradient(
+        90deg,
+        #759ddc,
+        #dcecff 48%,
+        #88afe8
+    );
+    box-shadow: inset 0 0 5px #ffffff65;
+}
+
+.lp1 { transform: rotate(0deg); }
+.lp2 { transform: rotate(60deg); }
+.lp3 { transform: rotate(120deg); }
+.lp4 { transform: rotate(180deg); }
+.lp5 { transform: rotate(240deg); }
+.lp6 { transform: rotate(300deg); }
+
+.lirio-centro {
+    position: absolute;
+    z-index: 3;
+    left: 37px;
+    top: 35px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 35% 30%,
+        #fff5c2,
+        #e9b84f 65%,
+        #bc8433
+    );
+    box-shadow: 0 0 7px #f7d98999;
+}
+
+.lirio-centro::before,
+.lirio-centro::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 22px;
+    top: -17px;
+    left: 4px;
+    background: linear-gradient(
+        #f2d184,
+        #c99546
+    );
+    border-radius: 100%;
+    transform: rotate(35deg);
+    transform-origin: bottom;
+}
+
+.lirio-centro::after {
+    transform: rotate(-35deg);
+}
+
+/* =====================================
+   ANIMACIONES
+===================================== */
+
+@keyframes flor-movimiento {
+    0%, 100% {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: -4px;
+    }
+}
+
+@keyframes ramo-aparece {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Adaptación para teléfonos pequeños */
+
+@media (max-width: 360px) {
+    .ramo {
+        transform: scale(.88);
+        transform-origin: top center;
+        margin-bottom: -25px;
+    }
+}
+
+
+
+/* =========================================
+   MENSAJE CENTRAL
+========================================= */
+
+.mensaje-inicial {
+
+    width:
+        min(500px, 90vw);
+
+    padding: 35px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    backdrop-filter:
+        blur(15px);
+
+    border:
+        1px solid rgba(255,255,255,.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+        var(--sombra);
+
+    position: relative;
+
+    animation:
+        tarjeta-aparece 1.5s ease;
+}
+
+
+.mensaje-inicial h2 {
+
+    margin:
+        12px 0;
+
+    font-weight: normal;
+
+    line-height: 1.4;
+}
+
+
+.mensaje-inicial p {
+
+    line-height: 1.6;
+}
+
+
+.mensaje-pequeno {
+
+    text-transform: uppercase;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    opacity: .6;
+}
+
+
+.brillo-esquina {
+
+    position: absolute;
+
+    right: 25px;
+
+    top: 15px;
+
+    animation:
+        brillo 2s infinite;
+}
+
+
+@keyframes brillo {
+
+    0%, 100% {
+        opacity: .3;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+#abrirCarta {
+
+    margin-top: 20px;
+
+    border: none;
+
+    padding:
+        14px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3974b8,
+            #6ea9da
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(50,100,160,.25);
+
+    transition:
+        .3s ease;
+}
+
+
+#abrirCarta:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(50,100,160,.35);
+}
+
+
+#abrirCarta span {
+
+    margin-left: 8px;
+}
+
+
+/* =========================================
+   VINILO
+========================================= */
+
+.vinilo {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 75px;
+
+    height: 75px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 100;
+}
+
+
+.disco {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #9ec9eb 0 7px,
+            #183e70 8px 12px,
+            #111827 13px 100%
+        );
+
+    box-shadow:
+        0 8px 20px rgba(20,50,90,.3);
+
+    position: relative;
+
+    transition: .3s;
+}
+
+
+.surco {
+
+    position: absolute;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    border-radius: 50%;
+
+    inset: 8px;
+}
+
+.surco-2 {
+    inset: 17px;
+}
+
+.surco-3 {
+    inset: 26px;
+}
+
+
+.centro-disco {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+.nota-musical {
+
+    position: absolute;
+
+    right: -5px;
+
+    top: -10px;
+
+    color: var(--azul);
+
+    font-size: 22px;
+
+    animation:
+        nota 2s infinite ease-in-out;
+}
+
+
+.vinilo.reproduciendo .disco {
+
+    animation:
+        girar 3s linear infinite;
+}
+
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes nota {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-10deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(10deg);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .inicio-contenido {
+
+        padding:
+            25px 15px;
+    }
+
+
+    .pequeno-texto {
+
+        font-size: 14px;
+    }
+
+
+    .happy {
+
+        letter-spacing: -2px;
+    }
+
+
+    .subtitulo {
+
+        font-size: 15px;
+
+        max-width: 300px;
+    }
+
+
+    .ramo {
+
+        transform:
+            scale(.78);
+
+        margin:
+            -15px 0;
+    }
+
+
+    .mensaje-inicial {
+
+        padding:
+            28px 20px;
+
+        border-radius: 25px;
+    }
+
+
+    .mensaje-inicial h2 {
+
+        font-size: 21px;
+    }
+
+
+    .vinilo {
+
+        width: 65px;
+
+        height: 65px;
+
+        right: 15px;
+
+        bottom: 15px;
+    }
+
+
+    .disco {
+
+        width: 60px;
+
+        height: 60px;
+    }
+
+
+    .pagina-carta {
+
+        padding:
+            35px 10px 90px;
+    }
+
+
+    .encabezado-carta h1 {
+
+        font-size: 48px;
+    }
+
+
+    .escena-carta {
+
+        min-height: auto;
+
+        padding:
+            20px 0 40px;
+    }
+
+
+    .persona-css {
+
+        transform:
+            scale(.55);
+
+        bottom: -100px;
+    }
+
+
+    .carta {
+
+        width: 94vw;
+
+        min-height: auto;
+
+        padding:
+            35px 25px;
+
+        transform:
+            rotate(-.5deg);
+    }
+
+
+    .carta-contenido {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+
+    .saludo {
+
+        font-size: 23px;
+    }
+
+}
